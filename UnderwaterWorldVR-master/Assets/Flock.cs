@@ -46,14 +46,8 @@ public class Flock : MonoBehaviour {
         {
             Debug.DrawRay(transform.position,transform.forward * 20,Color.red);
             sharkPos = shark.transform.position;
-            direction = sharkPos + transform.position;
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                Quaternion.LookRotation(-sharkPos),
-                flockManager.rotationSpeed * Time.deltaTime * 1.5f);
             speed = Random.Range(flockManager.minSpeed, flockManager.maxSpeed) + 0.2f;
             time += Time.deltaTime;
-            turning = true;
             if (time >= delay)
             {
                 time = 0;
@@ -61,15 +55,14 @@ public class Flock : MonoBehaviour {
                 turning = false;
             }
         }
-        
-        
-        
+
+
         if (!b.Contains(transform.position))
         {
             turning = true;
             direction = flockManager.transform.position - transform.position;
         }
-        else if (Physics.Raycast(transform.position, this.transform.forward, out hit,0.005f))
+        else if (Physics.Raycast(transform.position, this.transform.forward, out hit,0.02f))
         {
             Debug.DrawRay(transform.position,transform.forward,Color.green);
             if (hit.transform.CompareTag("Shark"))
@@ -148,24 +141,18 @@ public class Flock : MonoBehaviour {
         foreach (GameObject go in gos) {
 
             if (go != this.gameObject && go != null) {
-
                 nDistance = Vector3.Distance(go.transform.position, this.transform.position);
+                
                 if (nDistance <= flockManager.neighbourDistance) {
-
                     vcentre += go.transform.position;
                     groupSize++;
-
-                    if (nDistance < 0.30f) {
-
+                    if (nDistance < 0.30f)
                         vavoid = vavoid + (this.transform.position - go.transform.position);
-                    }
-
+                    
                     Flock anotherFlock = go.GetComponent<Flock>();
                     if (anotherFlock != null)
-                    {
                         gSpeed = gSpeed + anotherFlock.speed;
-                    }
-
+                    
                 }
             }
         }
@@ -186,10 +173,21 @@ public class Flock : MonoBehaviour {
             Vector3 direction = (vcentre + vavoid) - transform.position;
             if (direction != Vector3.zero) {
 
-                transform.rotation = Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(direction),
-                    flockManager.rotationSpeed * Time.deltaTime);
+                if (turningAwayFromPredator)
+                {
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        Quaternion.LookRotation(transform.position - sharkPos + direction),
+                        flockManager.rotationSpeed * Time.deltaTime * 1.5f);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        Quaternion.LookRotation(direction),
+                        flockManager.rotationSpeed * Time.deltaTime);
+                }
+
             }
         }
     }

@@ -1472,6 +1472,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2786534777698132407, guid: 7ed4e9e412519464dafe41dccd73a61c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786534777698132407, guid: 7ed4e9e412519464dafe41dccd73a61c,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 35f5c44283ea7984da74a6a0b272cb04, type: 2}
@@ -1676,7 +1681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 2395499129991610727, guid: 0ad594750ecfd7842a3ee45a2b13ac0d,
     type: 3}
-  numFish: 40
+  numFish: 70
   allFish: []
   swimLimits: {x: 2.22, y: 2.25, z: 11.37}
   goalPos: {x: 0, y: 0, z: 0}
@@ -2007,7 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 2395499129991610727, guid: 11deee8232f7a084ab3c3a6d990f5942,
     type: 3}
-  numFish: 15
+  numFish: 60
   allFish: []
   swimLimits: {x: 2.22, y: 2.25, z: 11.37}
   goalPos: {x: 0, y: 0, z: 0}
@@ -3218,7 +3223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 2395499129991610727, guid: 9d1ecc8f2f44eeb41b3286071e00ca5f,
     type: 3}
-  numFish: 70
+  numFish: 120
   allFish: []
   swimLimits: {x: 2.22, y: 2.25, z: 11.37}
   goalPos: {x: 0, y: 0, z: 0}
@@ -3687,7 +3692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 2395499129991610727, guid: bb7a538008af377439d8f3623eb48ee1,
     type: 3}
-  numFish: 20
+  numFish: 40
   allFish: []
   swimLimits: {x: 2.22, y: 2.25, z: 11.37}
   goalPos: {x: 0, y: 0, z: 0}

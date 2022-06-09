@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 718818778083462012}
   - component: {fileID: 3353627586649429919}
   - component: {fileID: -7811046135366580722}
-  - component: {fileID: 2574089817667629712}
+  - component: {fileID: 5459913513421915311}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Shark
@@ -106,8 +106,8 @@ MonoBehaviour:
   food: {fileID: 0}
   foodlevel: 74
   maxFood: 74
---- !u!65 &2574089817667629712
-BoxCollider:
+--- !u!136 &5459913513421915311
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,6 +116,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.4034386, y: 1.8705175, z: 5.869073}
+  m_Radius: 1.6
+  m_Height: 8.01
+  m_Direction: 2
   m_Center: {x: -0.00000017881393, y: 0.2958554, z: 0.020836473}

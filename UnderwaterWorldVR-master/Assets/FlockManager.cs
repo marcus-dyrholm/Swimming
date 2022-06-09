@@ -34,8 +34,6 @@ public class FlockManager : MonoBehaviour {
     }
 
     void Start() {
-
-        
         for (int i = 0; i < numFish; ++i) {
             Vector3 pos = this.transform.position + new Vector3(
                 Random.Range(-swimLimits.x/3, swimLimits.x/3),
@@ -46,9 +44,7 @@ public class FlockManager : MonoBehaviour {
             allFish[i].GetComponent<Flock>().flockManager = this;
             
         }
-
         goalPos = this.transform.position;
-        
         InvokeRepeating("CheckFoodLevels",10,10);
     }
 
